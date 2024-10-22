@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { NotSoldTask, notSoldTasksService } from '@/services/notSoldTasks.service';
+import { NotSoldTask, notSoldTasksService } from '@/services/notSoldTasksService';
 import DefaultLayout from '@/components/Layouts/DefaultLaout';
 import Breadcrumb from '@/components/Breadcrumbs/Breadcrumb';
 

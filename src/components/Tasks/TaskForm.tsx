@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { notSoldTasksService } from '@/services/notSoldTasks.service';
+import { notSoldTasksService } from '@/services/notSoldTasksService';
 
 const TaskForm: React.FC = () => {
   const [taskData, setTaskData] = useState({
