@@ -15,13 +15,41 @@ const NewAdvertisementPage: React.FC = () => {
         const newErrors: Record<string, string> = {};
         const title = formData.get('title') as string;
         const description = formData.get('description') as string;
-        const startDate = new Date(formData.get('startDate') as string);
-        const endDate = new Date(formData.get('endDate') as string);
+        const startDate = formData.get('startDate') as string;
+        const endDate = formData.get('endDate') as string;
         const imageFile = formData.get('image') as File;
 
+        // Existing validations
         if (title.length < 3) newErrors.title = "Title must be at least 3 characters";
         if (description.length < 10) newErrors.description = "Description must be at least 10 characters";
-        if (startDate >= endDate) newErrors.dates = "End date must be after start date";
+        
+        // Enhanced date validations
+        if (!startDate) {
+            newErrors.startDate = "Start date is required";
+        }
+        
+        if (!endDate) {
+            newErrors.endDate = "End date is required";
+        }
+
+        if (startDate && endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const now = new Date();
+
+            if (start < now) {
+                newErrors.startDate = "Start date cannot be in the past";
+            }
+
+            if (start >= end) {
+                newErrors.dates = "End date must be after start date";
+            }
+
+            if (end < now) {
+                newErrors.endDate = "End date cannot be in the past";
+            }
+        }
+
         if (imageFile && !imageFile.type.startsWith('image/')) newErrors.image = "Please upload a valid image file";
 
         setErrors(newErrors);
@@ -92,31 +120,31 @@ const NewAdvertisementPage: React.FC = () => {
                         />
                         {errors.description && <p className="text-red mt-1">{errors.description}</p>}
                     </div>
-
-                    <div className="mb-4.5 flex gap-6">
-                        <div className="w-1/2">
-                            <label className="mb-2.5 block text-black dark:text-white">
-                                Start Date <span className="text-red">*</span>
-                            </label>
-                            <input
-                                type="datetime-local"
-                                name="startDate"
-                                className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
-                            />
-                        </div>
-                        <div className="w-1/2">
-                            <label className="mb-2.5 block text-black dark:text-white">
-                                End Date <span className="text-red">*</span>
-                            </label>
-                            <input
-                                type="datetime-local"
-                                name="endDate"
-                                className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
-                            />
-                        </div>
-                    </div>
-                    {errors.dates && <p className="text-red mt-1 mb-4.5">{errors.dates}</p>}
-
+                      <div className="mb-4.5 flex gap-6">
+                          <div className="w-1/2">
+                              <label className="mb-2.5 block text-black dark:text-white">
+                                  Start Date <span className="text-red">*</span>
+                              </label>
+                              <input
+                                  type="datetime-local"
+                                  name="startDate"
+                                  className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                              />
+                              {errors.startDate && <p className="text-red mt-1">{errors.startDate}</p>}
+                          </div>
+                          <div className="w-1/2">
+                              <label className="mb-2.5 block text-black dark:text-white">
+                                  End Date <span className="text-red">*</span>
+                              </label>
+                              <input
+                                  type="datetime-local"
+                                  name="endDate"
+                                  className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                              />
+                              {errors.endDate && <p className="text-red mt-1">{errors.endDate}</p>}
+                          </div>
+                      </div>
+                      {errors.dates && <p className="text-red mt-1 mb-4.5">{errors.dates}</p>}
                     <div className="mb-4.5">
                         <label className="mb-2.5 block text-black dark:text-white">
                             Image <span className="text-red">*</span>
