@@ -176,6 +176,7 @@ export interface Warehousing {
 }
 
 export interface Email {
+  Id: GUID;
   firstName: string;
   lastName: string;
   phoneNumber: string;

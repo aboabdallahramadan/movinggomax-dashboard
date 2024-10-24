@@ -72,7 +72,7 @@ const EmailsPage: React.FC = () => {
                                         <div className="flex items-center space-x-3.5">
                                             <button 
                                                 className="hover:text-danger"
-                                                onClick={() => emailService.deleteById(index.toString())}
+                                                onClick={() => emailService.deleteById(email.Id)}
                                             >
                                                 <svg
                                                     className="fill-current"
