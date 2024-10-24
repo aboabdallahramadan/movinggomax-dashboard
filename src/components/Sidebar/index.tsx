@@ -89,7 +89,55 @@ const menuGroups = [
         ),
         label: "Calendar",
         route: "/calendar",
+      },// Add this to the MAIN MENU group's menuItems array
+      {
+        icon: (
+          <svg
+            className="fill-current"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 14C17.5523 14 18 13.5523 18 13C18 12.4477 17.5523 12 17 12C16.4477 12 16 12.4477 16 13C16 13.5523 16.4477 14 17 14Z"
+              fill=""
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M7.75 7.5C7.75 7.08579 8.08579 6.75 8.5 6.75H15.5C15.9142 6.75 16.25 7.08579 16.25 7.5C16.25 7.91421 15.9142 8.25 15.5 8.25H8.5C8.08579 8.25 7.75 7.91421 7.75 7.5Z"
+              fill=""
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M7.75 11.5C7.75 11.0858 8.08579 10.75 8.5 10.75H15.5C15.9142 10.75 16.25 11.0858 16.25 11.5C16.25 11.9142 15.9142 12.25 15.5 12.25H8.5C8.08579 12.25 7.75 11.9142 7.75 11.5Z"
+              fill=""
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M7.75 15.5C7.75 15.0858 8.08579 14.75 8.5 14.75H11.5C11.9142 14.75 12.25 15.0858 12.25 15.5C12.25 15.9142 11.9142 16.25 11.5 16.25H8.5C8.08579 16.25 7.75 15.9142 7.75 15.5Z"
+              fill=""
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M3.25 5C3.25 2.92893 4.92893 1.25 7 1.25H17C19.0711 1.25 20.75 2.92893 20.75 5V19C20.75 21.0711 19.0711 22.75 17 22.75H7C4.92893 22.75 3.25 21.0711 3.25 19V5ZM7 2.75C5.75736 2.75 4.75 3.75736 4.75 5V19C4.75 20.2426 5.75736 21.25 7 21.25H17C18.2426 21.25 19.25 20.2426 19.25 19V5C19.25 3.75736 18.2426 2.75 17 2.75H7Z"
+              fill=""
+            />
+          </svg>
+        ),
+        label: "Invoices",
+        route: "#",
+        children: [
+          { label: "Invoice List", route: "/invoices" },
+          { label: "New Invoice", route: "/invoices/new" },
+        ],
       },
+      
       {
         icon: (
           <svg

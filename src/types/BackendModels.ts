@@ -95,6 +95,14 @@ export interface Invoice {
     CompanyId: GUID;
     MissionId: GUID;
 }
+export interface InvoiceVwModel {
+    Id: GUID;
+    Amount: Decimal;
+    CreatedDate: DateTime;
+    CompanyId: GUID;
+    CompanyName: string;
+    MissionName: string;
+}
 
 // Model: Messages
 export interface Message {
