@@ -464,3 +464,28 @@ input[type="search"]::-webkit-search-cancel-button {
 .custom-gradient-1 {
     background-image: linear-gradient(145deg, #EEF 0%, #FFF8FC 100%);;
 }
+
+
+
+
+
+/* Set the width of the scrollbar */
+::-webkit-scrollbar {
+    width: 6px; 
+}
+
+/* Track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light background color */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background: #5750f1; /* Default handle color */
+    border-radius: 8px; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #5750f1; /* Darker color on hover */
+}
