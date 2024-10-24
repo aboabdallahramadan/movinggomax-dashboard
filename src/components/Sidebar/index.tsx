@@ -152,7 +152,25 @@ const menuGroups = [
           { label: "Invoice List", route: "/invoices" },
           { label: "New Invoice", route: "/invoices/new" },
         ],
+      },{
+        icon: (
+          <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_iconCarrier">
+              <path d="M8 4H5C4.44772 4 4 4.44772 4 5V8" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M4 16V19C4 19.5523 4.44772 20 5 20H8" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M16 4H19C19.5523 4 20 4.44772 20 5V8" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M20 16V19C20 19.5523 19.5523 20 19 20H16" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M9 12L11 14L15 10" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </g>
+          </svg>
+        ),
+        label: "Job Requests",
+        route: "#",
+        children: [
+          { label: "Request List", route: "/job-requests" },
+        ],
       },
+      
 
       // {
       //   icon: (

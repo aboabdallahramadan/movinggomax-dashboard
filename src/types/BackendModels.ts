@@ -184,3 +184,20 @@ export interface Email {
   location: string;
   message: string;
 }
+
+export interface JobApplicationForm {
+  Id: GUID;
+  name: string;
+  email: string;
+  address: string;
+  academicAchievement: string;
+  courses: string;
+  experienceCertificates: string;
+  typeOfWork: string;
+  skills: string;
+  previousCompanies: string;
+  cv: string;
+  nationality: string;
+  maritalStatus: "Single" | "Married";
+  gender: "Male" | "Female";
+}
