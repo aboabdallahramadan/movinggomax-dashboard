@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build",    "start": "next start",
     "lint": "next lint",
     "export": "next export"
   },
@@ -38,3 +37,4 @@
     "typescript": "^5"
   }
 }
+

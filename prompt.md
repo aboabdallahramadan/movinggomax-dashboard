@@ -11,3 +11,5 @@ write the http calls using axios but comment it and return a fake data
 
 --------------
  nextjs-admin-dashboard-main use the notSoldTasks service to add to implement the pages in the pages directory 
+ 
+// "dev": "next dev --hostname 0.0.0.0 --port 4000",

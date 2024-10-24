@@ -342,7 +342,9 @@ const menuGroups = [
           { label: "Warehousing Missions", route: "/warehousing-missions/id" },
           { label: "Transfer Missions", route: "/transfer-missions/id" },
           { label: "Empty Car Missions", route: "/empty-car-missions/id" },
-          { label: "Cleaning Missions", route: "/cleaning-missions/id" }
+          { label: "Cleaning Missions", route: "/cleaning-missions/id" },
+          { label: "Unsold Missions", route: "/unsold-missions" },
+
         ],
       },
 
