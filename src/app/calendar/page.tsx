@@ -1,24 +1,24 @@
-import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLaout";
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import CalendarBox from "@/components/CalenderBox";
+import React from 'react';
+import DefaultLayout from '@/components/Layouts/DefaultLaout';
+import Breadcrumb from '@/components/Breadcrumbs/Breadcrumb';
+import TaskCalendar from '@/components/Calendar/TaskCalendar';
 
-export const metadata: Metadata = {
-  title: "Next.js Calender Page | NextAdmin - Next.js Dashboard Kit",
-  description:
-    "This is Next.js Calender page for NextAdmin  Tailwind CSS Admin Dashboard Kit",
-  // other metadata
-};
+const TaskCalendarPage: React.FC = () => {
+  // Example data - replace with your actual data
+  const sampleTaskDates = [
+    { date: new Date(), numberOfTasks: 3 },
+    { date: new Date(new Date().setDate(new Date().getDate() + 2)), numberOfTasks: 5 },
+    // Add more dates as needed
+  ];
 
-const CalendarPage = () => {
   return (
     <DefaultLayout>
-      <div className="mx-auto max-w-7xl">
-        <Breadcrumb pageName="Calendar" />
-        <CalendarBox />
+      <Breadcrumb pageName="Task Calendar" />
+      <div className="mt-4">
+        <TaskCalendar taskDates={sampleTaskDates} />
       </div>
     </DefaultLayout>
   );
 };
 
-export default CalendarPage;
+export default TaskCalendarPage;

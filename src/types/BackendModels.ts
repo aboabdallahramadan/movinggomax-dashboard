@@ -174,3 +174,12 @@ export interface Warehousing {
   StorageDuration: number;
   AreaInCubicMeter: Decimal;
 }
+
+export interface Email {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  location: string;
+  message: string;
+}
