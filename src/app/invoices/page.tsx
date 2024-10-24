@@ -1,6 +1,7 @@
 'use client'
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
+import Pagination from "@/components/Pagination/Pagination";
 import { InvoiceService } from "@/services/invoicesService";
 import { InvoiceVwModel } from "@/types/BackendModels";
 import Link from "next/link";
@@ -11,8 +12,16 @@ const InvoicesPage: React.FC = () => {
     const [totalInvoices, setTotalInvoices] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 10;
-    const invoiceService = new InvoiceService();
+    const invoiceService = new InvoiceService();  
+    // 
 
+    const totalPages = Math.ceil(totalInvoices / pageSize);
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+    };
+
+    //
     useEffect(() => {
         const loadInvoices = async () => {
             const result = await invoiceService.getPaginated(currentPage, pageSize);
@@ -64,16 +73,6 @@ const InvoicesPage: React.FC = () => {
                                     <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                         {new Date(invoice.CreatedDate).toLocaleDateString()}
                                     </td>
-                                    {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                        <div className="flex items-center space-x-3.5">
-                                            <button onClick={() => invoiceService.sendInvoice(invoice.Id)}>
-                                                Send
-                                            </button>
-                                            <button onClick={() => invoiceService.deleteInvoice(invoice.Id)}>
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </td> */}
                                     <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                         <div className="flex items-center space-x-3.5">
                                             <Link
@@ -112,6 +111,11 @@ const InvoicesPage: React.FC = () => {
                     </table>
                 </div>
             </div>
+            <Pagination
+                currentPage={currentPage}
+                totalPages={10}
+                setCurrentPage={setCurrentPage}
+            />
         </DefaultLayout>
     );
 };
