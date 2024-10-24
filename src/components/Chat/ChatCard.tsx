@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 import Image from "next/image";
 import { Chat } from "@/types/chat";
@@ -49,19 +50,82 @@ const chatData: Chat[] = [
     textCount: 0,
     dot: 3,
   },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Jubin Jack",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    dot: 3,
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Jubin Jack",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    dot: 3,
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Jubin Jack",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    dot: 3,
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Jubin Jack",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    dot: 3,
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Jubin Jack",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    dot: 3,
+  },
+  {
+    active: false,
+    avatar: "/images/user/user-06.png",
+    name: "Jubin Jack",
+    text: "Hello, how are you?",
+    time: "Oct 23",
+    textCount: 0,
+    dot: 3,
+  },
+
 ];
 
 const ChatCard = () => {
   return (
-    <div className="col-span-12 rounded-[10px] bg-white py-6 shadow-1 dark:bg-gray-dark dark:shadow-card xl:col-span-4">
-      <h4 className="mb-5.5 px-7.5 text-body-2xlg font-bold text-dark dark:text-white">
-        Chats
-      </h4>
-
-      <div>
+    <div className=" rounded-[10px] bg-white py-6 shadow-1 dark:bg-gray-dark dark:shadow-card ">
+      <div 
+      style={{
+        maxHeight: "500px",
+        overflowY: "scroll",
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+      }}
+      className="ma">
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
         {chatData.map((chat, key) => (
           <Link
-            href="/"
+            href={`/chats/${key}`}
             className="flex items-center gap-4.5 px-7.5 py-3 hover:bg-gray-1 dark:hover:bg-dark-2"
             key={key}
           >
@@ -116,5 +180,4 @@ const ChatCard = () => {
     </div>
   );
 };
-
 export default ChatCard;
