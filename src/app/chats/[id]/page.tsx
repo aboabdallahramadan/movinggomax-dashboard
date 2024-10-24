@@ -47,7 +47,10 @@ const ChatPage = ({ params }: { params: { id: string } }) => {
   return (
     <DefaultLayout>
       <Breadcrumb pageName="Chats" />
-      <div className="h-screen flex flex-col bg-white dark:bg-gray-dark">
+      <div className="h-screen flex flex-col bg-white dark:bg-gray-dark"
+        style={{
+          maxHeight: "500px"
+        }}>
         {/* Chat Header */}
         <div className="p-4 border-b border-stroke dark:border-dark-3">
           <div className="flex items-center gap-3">
@@ -74,8 +77,8 @@ const ChatPage = ({ params }: { params: { id: string } }) => {
             >
               <div
                 className={`max-w-[70%] rounded-lg p-3 ${msg.sender === 'user'
-                    ? 'bg-primary text-white'
-                    : 'bg-gray-2 dark:bg-dark-2 text-dark dark:text-white'
+                  ? 'bg-primary text-white'
+                  : 'bg-gray-2 dark:bg-dark-2 text-dark dark:text-white'
                   }`}
               >
                 <p>{msg.text}</p>
