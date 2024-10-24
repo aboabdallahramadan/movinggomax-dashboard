@@ -95,7 +95,7 @@ export default function MissionPricingPage() {
                                                     ...editValues,
                                                     [pricing.Id]: Number(e.target.value)
                                                 })}
-                                                className="w-full rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-medium outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                className="w-31 rounded border-[1.5px] border-stroke bg-transparent py-1 px-2 font-medium outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                             />
                                         ) : (<p className="text-black dark:text-white">${pricing.Price}</p>
                                         )}
