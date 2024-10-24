@@ -113,7 +113,7 @@ const InvoicesPage: React.FC = () => {
             </div>
             <Pagination
                 currentPage={currentPage}
-                totalPages={10}
+                totalPages={totalInvoices}
                 setCurrentPage={setCurrentPage}
             />
         </DefaultLayout>
