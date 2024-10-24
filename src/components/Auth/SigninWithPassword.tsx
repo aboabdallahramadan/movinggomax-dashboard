@@ -9,6 +9,11 @@ export default function SigninWithPassword() {
 
   return (
     <form>
+      
+      <h2 className="mb-9 text-2xl text-center font-bold text-dark dark:text-white sm:text-3xl">
+        Log in
+      </h2>
+
       <div className="mb-4">
         <label
           htmlFor="email"
