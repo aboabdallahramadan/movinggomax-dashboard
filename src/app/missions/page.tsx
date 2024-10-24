@@ -1,29 +1,43 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Mission } from '@/types/mission.types';
-import { MissionService } from '@/services/mission.service';
+import { Mission } from '@/types/BackendModels';
+import { MissionService } from '@/services/missionService';
 import DefaultLayout from '@/components/Layouts/DefaultLaout';
 import Breadcrumb from '@/components/Breadcrumbs/Breadcrumb';
 
 export default function MissionsPage() {
   const [missions, setMissions] = useState<Mission[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(10);
+  const [totalItems, setTotalItems] = useState(0);
+  const missionService = new MissionService();
 
   useEffect(() => {
-    const fetchMissions = async () => {
-      try {
-        const data = await MissionService.getAllMissions();
-        setMissions(data);
-      } catch (error) {
-        console.error('Error fetching missions:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchMissions();
-  }, []);
+  }, [currentPage]);
+
+  const fetchMissions = async () => {
+    try {
+      const response = await missionService.getPaginated(currentPage, pageSize);
+      setMissions(response.data);
+      setTotalItems(response.total);
+    } catch (error) {
+      console.error('Error fetching missions:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    try {
+      await missionService.deleteMission(id);
+      fetchMissions();
+    } catch (error) {
+      console.error('Error deleting mission:', error);
+    }
+  };
 
   return (
     <DefaultLayout>
@@ -34,61 +48,44 @@ export default function MissionsPage() {
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4">
-                {/* <th className="min-w-[100px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">ID</th> */}
                 <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">Type</th>
                 <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">Responsible</th>
                 <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">Price</th>
-                {/* <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">Client Name</th> */}
-                {/* <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">Client Phone</th> */}
                 <th className="min-w-[200px] py-4 px-4 font-medium text-black dark:text-white">Description</th>
-                {/* <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">Location</th> */}
                 <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">Status</th>
                 <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">Created At</th>
                 <th className="px-4 py-4 text-right font-medium text-dark dark:text-white xl:pr-7.5">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {missions.map((mission,index) => (
-                <tr key={mission.id}>
-                  {/* <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
-                    <p className="text-black dark:text-white">{mission.id}</p>
-                  </td> */}
+              {missions.map((mission, index) => (
+                <tr key={mission.Id}>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                    <h5 className="font-medium text-black dark:text-white">{mission.type}</h5>
+                    <h5 className="font-medium text-black dark:text-white">{mission.Type}</h5>
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{mission.missionResponsible}</p>
+                    <p className="text-black dark:text-white">{mission.MissionResponsible}</p>
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">${mission.price}</p>
+                    <p className="text-black dark:text-white">${mission.Price}</p>
                   </td>
-                  {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{mission.clientName}</p>
-                  </td> */}
-                  {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{mission.clientPhone}</p>
-                  </td> */}
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{mission.description}</p>
+                    <p className="text-black dark:text-white">{mission.Description}</p>
                   </td>
-                  {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{mission.location}</p>
-                  </td> */}
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ${
-                      mission.state === 'completed' ? 'text-success bg-success' :
-                      mission.state === 'pending' ? 'text-warning bg-warning' :
+                      mission.State === 'completed' ? 'text-success bg-success' :
+                      mission.State === 'pending' ? 'text-warning bg-warning' :
                       'text-danger bg-danger'
                     }`}>
-                      {mission.state}
+                      {mission.State}
                     </p>
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
-                      {new Date(mission.executeDateTime).toLocaleDateString()}
+                      {new Date(mission.ExecuteDateTime).toLocaleDateString()}
                     </p>
                   </td>
-                    
                   <td
                   className={`border-[#eee] px-4 py-4 dark:border-dark-3 xl:pr-7.5 ${index === missions.length - 1 ? "border-b-0" : "border-b"}`}
                 >

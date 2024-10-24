@@ -94,8 +94,8 @@ const menuGroups = [
         icon: (
           <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_iconCarrier">
-              <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <rect x="3" y="5" width="18" height="14" rx="2" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <rect x="3" y="5" width="18" height="14" rx="2" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
             </g>
           </svg>
         ),
@@ -105,7 +105,7 @@ const menuGroups = [
           { label: "Email List", route: "/emails" },
         ],
       },
-      
+
       {
         icon: (
           <svg
@@ -152,15 +152,15 @@ const menuGroups = [
           { label: "Invoice List", route: "/invoices" },
           { label: "New Invoice", route: "/invoices/new" },
         ],
-      },{
+      }, {
         icon: (
           <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_iconCarrier">
-              <path d="M8 4H5C4.44772 4 4 4.44772 4 5V8" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M4 16V19C4 19.5523 4.44772 20 5 20H8" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M16 4H19C19.5523 4 20 4.44772 20 5V8" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M20 16V19C20 19.5523 19.5523 20 19 20H16" stroke="#000000" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M9 12L11 14L15 10" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M8 4H5C4.44772 4 4 4.44772 4 5V8" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+              <path d="M4 16V19C4 19.5523 4.44772 20 5 20H8" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+              <path d="M16 4H19C19.5523 4 20 4.44772 20 5V8" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+              <path d="M20 16V19C20 19.5523 19.5523 20 19 20H16" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+              <path d="M9 12L11 14L15 10" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </g>
           </svg>
         ),
@@ -170,7 +170,15 @@ const menuGroups = [
           { label: "Request List", route: "/job-requests" },
         ],
       },
-      
+      // Add this to the MAIN MENU group's menuItems array:
+      {
+        icon: (
+          <svg width="24px" height="24px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <clipPath id="clip-pricetag"> <rect width="32" height="32"></rect> </clipPath> </defs> <g id="pricetag" clip-path="url(#clip-pricetag)"> <g id="Group_2408" data-name="Group 2408" transform="translate(-156 -260)"> <g id="Group_2404" data-name="Group 2404"> <g id="Group_2403" data-name="Group 2403"> <g id="Group_2402" data-name="Group 2402"> <path id="Path_3858" data-name="Path 3858" d="M174.716,280.041a2.81,2.81,0,0,0-.9-.555q-.5-.192-1.354-.426v-2.853a1.553,1.553,0,0,1,1.09,1.139.855.855,0,0,0,.871.727.827.827,0,0,0,.607-.251.81.81,0,0,0,.251-.593,1.66,1.66,0,0,0-.168-.679,2.9,2.9,0,0,0-.477-.72,2.483,2.483,0,0,0-.916-.686,4.277,4.277,0,0,0-1.258-.3V274.1c0-.375-.147-.562-.439-.562s-.433.192-.433.576v.727a3.36,3.36,0,0,0-2.17.878,2.94,2.94,0,0,0-.367,3.416,2.582,2.582,0,0,0,1,.888,8.413,8.413,0,0,0,1.536.566v3.189a1.837,1.837,0,0,1-.737-.377,1.67,1.67,0,0,1-.415-.545,8.714,8.714,0,0,1-.322-.861.741.741,0,0,0-.295-.4.91.91,0,0,0-.522-.144.859.859,0,0,0-.641.264.832.832,0,0,0-.257.594,2.364,2.364,0,0,0,.192.909,3,3,0,0,0,.593.891,3.327,3.327,0,0,0,1,.717,4.317,4.317,0,0,0,1.4.377v1.852a.867.867,0,0,0,.1.467.384.384,0,0,0,.346.151.335.335,0,0,0,.347-.186,1.626,1.626,0,0,0,.079-.59v-1.708a3.839,3.839,0,0,0,1.694-.514,2.906,2.906,0,0,0,1.08-1.115,3.04,3.04,0,0,0,.367-1.464,2.838,2.838,0,0,0-.23-1.149A2.563,2.563,0,0,0,174.716,280.041Zm-3.128-1.234a2.777,2.777,0,0,1-.919-.505,1.058,1.058,0,0,1-.3-.819,1.069,1.069,0,0,1,.322-.851,2.41,2.41,0,0,1,.9-.453Zm1.942,4.485a1.884,1.884,0,0,1-1.07.556v-3a3,3,0,0,1,1.08.552,1.168,1.168,0,0,1,.367.922A1.41,1.41,0,0,1,173.53,283.292Z" fill="#000000"></path> </g> </g> </g> <g id="Group_2407" data-name="Group 2407"> <g id="Group_2406" data-name="Group 2406"> <g id="Group_2405" data-name="Group 2405"> <path id="Path_3859" data-name="Path 3859" d="M181.273,271.04l-4.151-7.189a1,1,0,0,0-.866-.5H172.5v-2.7a.5.5,0,0,0-1,0v2.7h-3.756a1,1,0,0,0-.866.5l-4.149,7.187a1,1,0,0,0-.271.684v19.129a1,1,0,0,0,1,1h17.082a1,1,0,0,0,1-1V271.723A1,1,0,0,0,181.273,271.04Zm-1.731,18.811H164.458V272.043l3.863-6.692H171.5v1.822a2,2,0,1,0,1,0v-1.821h3.178l3.864,6.691ZM172,269.6a.5.5,0,0,0,.5-.5v-.846a.988.988,0,0,1,.5.846,1,1,0,1,1-1.707-.706,1.018,1.018,0,0,1,.207-.14v.846A.5.5,0,0,0,172,269.6Z" fill="#000000"></path> </g> </g> </g> </g> </g> </g></svg>
+        ),
+        label: "Mission Pricing",
+        route: "/mission-pricing",
+      }
+      ,
 
       // {
       //   icon: (
@@ -224,7 +232,7 @@ const menuGroups = [
           //     fill=""
           //   />
           // </svg>
-        <svg width="24px" height="24px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3.5 10V7C3.5 6.17157 4.17157 5.5 5 5.5C5.82843 5.5 6.5 6.17157 6.5 7V10M11.5 5V10M11.5 7.5H9.5C8.94772 7.5 8.5 7.94772 8.5 8.5C8.5 9.05228 8.94772 9.5 9.5 9.5H11.5M3.5 8.5H6.5M2.5 2.5H12.5C13.6046 2.5 14.5 3.39543 14.5 4.5V10.5C14.5 11.6046 13.6046 12.5 12.5 12.5H2.5C1.39543 12.5 0.5 11.6046 0.5 10.5V4.5C0.5 3.39543 1.39543 2.5 2.5 2.5Z" stroke="#000000"></path> </g></svg>        ),
+          <svg width="24px" height="24px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3.5 10V7C3.5 6.17157 4.17157 5.5 5 5.5C5.82843 5.5 6.5 6.17157 6.5 7V10M11.5 5V10M11.5 7.5H9.5C8.94772 7.5 8.5 7.94772 8.5 8.5C8.5 9.05228 8.94772 9.5 9.5 9.5H11.5M3.5 8.5H6.5M2.5 2.5H12.5C13.6046 2.5 14.5 3.39543 14.5 4.5V10.5C14.5 11.6046 13.6046 12.5 12.5 12.5H2.5C1.39543 12.5 0.5 11.6046 0.5 10.5V4.5C0.5 3.39543 1.39543 2.5 2.5 2.5Z" stroke="#000000"></path> </g></svg>),
         label: "Advertisements",
         route: "#",
         children: [
@@ -314,13 +322,13 @@ const menuGroups = [
           //   />
           // </svg>
           <svg fill="#000000" width="24px" height="24px" viewBox="0 0 36 36" version="1.1"
-           preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
             xlinkHref="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier"
-             stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>tasks-line</title> 
-             <path className="clr-i-outline clr-i-outline-path-1"
-              d="M29.29,34H6.71A1.7,1.7,0,0,1,5,32.31V6.69A1.75,1.75,0,0,1,7,5H9V7H7V32H29V7H27V5h2.25A1.7,1.7,0,0,1,31,6.69V32.31A1.7,1.7,0,0,1,29.29,34Z">
-                </path><path className="clr-i-outline clr-i-outline-path-2" d="M16.66,25.76,11.3,20.4A1,1,0,0,1,12.72,19l3.94,3.94,8.64-8.64a1,1,0,0,1,1.41,1.41Z"></path>
-            <path className="clr-i-outline clr-i-outline-path-3" d="M26,11H10V7.33A2.34,2.34,0,0,1,12.33,5h1.79a4,4,0,0,1,7.75,0h1.79A2.34,2.34,0,0,1,26,7.33ZM12,9H24V7.33A.33.33,0,0,0,23.67,7H20V6a2,2,0,0,0-4,0V7H12.33a.33.33,0,0,0-.33.33Z"></path> <rect x="0" y="0" width="36" height="36" fill-opacity="0"></rect> </g></svg>
+              stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>tasks-line</title>
+              <path className="clr-i-outline clr-i-outline-path-1"
+                d="M29.29,34H6.71A1.7,1.7,0,0,1,5,32.31V6.69A1.75,1.75,0,0,1,7,5H9V7H7V32H29V7H27V5h2.25A1.7,1.7,0,0,1,31,6.69V32.31A1.7,1.7,0,0,1,29.29,34Z">
+              </path><path className="clr-i-outline clr-i-outline-path-2" d="M16.66,25.76,11.3,20.4A1,1,0,0,1,12.72,19l3.94,3.94,8.64-8.64a1,1,0,0,1,1.41,1.41Z"></path>
+              <path className="clr-i-outline clr-i-outline-path-3" d="M26,11H10V7.33A2.34,2.34,0,0,1,12.33,5h1.79a4,4,0,0,1,7.75,0h1.79A2.34,2.34,0,0,1,26,7.33ZM12,9H24V7.33A.33.33,0,0,0,23.67,7H20V6a2,2,0,0,0-4,0V7H12.33a.33.33,0,0,0-.33.33Z"></path> <rect x="0" y="0" width="36" height="36" fill-opacity="0"></rect> </g></svg>
         ),
         label: "Missions",
         route: "#",
@@ -378,7 +386,7 @@ const menuGroups = [
         label: "Chats",
         route: "/chats",
       }
-      
+
 
       // {
       //   icon: (
@@ -568,8 +576,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     <ClickOutside onClick={() => setSidebarOpen(false)}>
       <aside
         className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden border-r border-stroke bg-white dark:border-stroke-dark dark:bg-gray-dark lg:static lg:translate-x-0 ${sidebarOpen
-            ? "translate-x-0 duration-300 ease-linear"
-            : "-translate-x-full"
+          ? "translate-x-0 duration-300 ease-linear"
+          : "-translate-x-full"
           }`}
       >
         {/* <!-- SIDEBAR HEADER --> */}
