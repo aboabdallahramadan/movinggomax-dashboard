@@ -1,92 +1,114 @@
-// import axios from 'axios';
+import axios, { AxiosResponse } from "axios";
+import { NotificationVwModel, Notification } from "@/types/BackendModels";
+import Swal from "sweetalert2";
 
-export interface Notification {
-  id: string;
-  title: string;
-  message: string;
-  type: 'info' | 'warning' | 'success' | 'error';
-  timestamp: string;
-  isRead: boolean;
-  recipients: string[];
-}
-
-interface CustomNotification {
-  title: string;
-  message: string;
-  type: 'info' | 'warning' | 'success' | 'error';
-  recipientIds: string[];
-}
-
-export const notificationsService = {
-  // Get notification details
-  getNotificationDetails: async (notificationId: string): Promise<Notification> => {
-    /* 
-    try {
-      const response = await axios.get(`/api/notifications/${notificationId}`);
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to fetch notification details');
-    }
-    */
-
-    return {
-      id: notificationId,
-      title: 'System Update',
-      message: 'Important system maintenance scheduled for tonight',
-      type: 'info',
-      timestamp: '2024-01-20T10:00:00Z',
-      isRead: false,
-      recipients: ['user1', 'user2']
-    };
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseenter = Swal.resumeTimer;
   },
+});
+
+const BASE_URL = "https://api.example.com/notifications";
+
+export class NotificationsService {
+  // Get paginated notifications
+  public async getPaginated(
+    page: number,
+    pageSize: number,
+  ): Promise<{ data: NotificationVwModel[]; total: number }> {
+    // API call would be here, returning dummy data for now
+    return {
+      data: [
+        {
+          Id: "guid-123",
+          Content: "New mission assigned",
+          Date: new Date(),
+          UserId: "user-123",
+          MissionId: "mission-123",
+          MissionName: "Project Alpha",
+        },
+        {
+          Id: "guid-456",
+          Content: "Invoice generated",
+          Date: new Date(),
+          UserId: "user-456",
+          InvoiceId: "invoice-456",
+          InvoiceName: "INV-2023-001",
+        },
+      ],
+      total: 2,
+    };
+  }
+
+  // Get notification details
+  public async getNotificationDetails(
+    id: string,
+  ): Promise<NotificationVwModel> {
+    // API call would be here
+    return {
+      Id: id,
+      Content: "Detailed notification content",
+      Date: new Date(),
+      UserId: "user-123",
+      MissionId: "mission-123",
+      MissionName: "Project Alpha",
+      InvoiceId: "invoice-123",
+      InvoiceName: "INV-2023-001",
+    };
+  }
 
   // Create and send custom notification
-  createCustomNotification: async (notification: CustomNotification): Promise<{ success: boolean, notificationIds: string[] }> => {
-    /* 
-    try {
-      const response = await axios.post('/api/notifications/custom', notification);
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to create and send custom notification');
-    }
-    */
+  public async createCustomNotification(notification: {
+    content: string;
+    userIds: string[];
+    missionId?: string;
+    invoiceId?: string;
+    isGlobal: boolean;
+  }): Promise<Notification> {
+    // API call would be here
+    Toast.fire({
+      icon: "success",
+      title: "Notification sent successfully",
+    });
 
     return {
-      success: true,
-      notificationIds: notification.recipientIds.map(id => `notif_${id}_${Date.now()}`)
+      Id: "new-guid-789",
+      Content: notification.content,
+      IsRead: false,
+      Date: new Date(),
+      UserId: notification.userIds[0],
+      IsGlobal: notification.isGlobal,
+      MissionId: notification.missionId,
+      InvoiceId: notification.invoiceId,
     };
-  },
-
-  // Get all notifications
-  getAllNotifications: async (): Promise<Notification[]> => {
-    /* 
-    try {
-      const response = await axios.get('/api/notifications');
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to fetch notifications');
-    }
-    */
-
-    return [
-      {
-        id: '1',
-        title: 'New Task Available',
-        message: 'A new high-priority task has been posted',
-        type: 'info',
-        timestamp: '2024-01-20T09:00:00Z',
-        isRead: false,
-        recipients: ['all']
-      },
-      {
-        id: '2',
-        title: 'System Maintenance',
-        message: 'Scheduled maintenance in 2 hours',
-        type: 'warning',
-        timestamp: '2024-01-20T08:30:00Z',
-        isRead: true,
-        recipients: ['admin', 'user1']
-      }
-    ];
   }
-};
+
+  // Mark notification as read
+  public async markAsRead(id: string): Promise<boolean> {
+    // API call would be here
+    Toast.fire({
+      icon: "success",
+      title: "Notification marked as read",
+    });
+    return true;
+  }
+
+  // Delete notification
+  public async deleteNotification(id: string): Promise<boolean> {
+    // API call would be here
+    Toast.fire({
+      icon: "success",
+      title: "Notification deleted successfully",
+    });
+    return true;
+  }
+}
+
+// Export a singleton instance
+export const notificationsService = new NotificationsService();
