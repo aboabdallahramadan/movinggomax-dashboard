@@ -20,19 +20,9 @@ export interface Advertisement {
 export interface User {
   Id: GUID;
   UserName?: string;
-  NormalizedUserName?: string;
   Email?: string;
-  NormalizedEmail?: string;
-  EmailConfirmed: boolean;
-  PasswordHash?: string;
-  SecurityStamp?: string;
-  ConcurrencyStamp?: string;
   PhoneNumber?: string;
-  PhoneNumberConfirmed: boolean;
-  TwoFactorEnabled: boolean;
-  LockoutEnd?: DateTime;
-  LockoutEnabled: boolean;
-  AccessFailedCount: number;
+  IsActive: boolean;
 }
 
 // Model: ChatParticipants
