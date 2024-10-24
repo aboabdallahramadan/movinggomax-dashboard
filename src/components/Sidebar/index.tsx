@@ -344,6 +344,10 @@ const menuGroups = [
           { label: "Empty Car Missions", route: "/empty-car-missions/id" },
           { label: "Cleaning Missions", route: "/cleaning-missions/id" },
           { label: "Unsold Missions", route: "/unsold-missions" },
+          { label: "Sold Missions", route: "/sold-missions" },
+          { label: "Termination Missions", route: "/termination-missions" },
+          { label: "Ended Missions", route: "/ended-missions" },
+          { label: "Urgent Missions", route: "/urgent-missions" },
 
         ],
       },
