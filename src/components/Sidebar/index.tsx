@@ -280,9 +280,17 @@ const menuGroups = [
         ),
         label: "Missions",
         route: "#",
+        // children: [
+        //   { label: "Mission List", route: "/missions" },
+        //   { label: "New Mission", route: "/missions/new" },
+        // ],
         children: [
           { label: "Mission List", route: "/missions" },
           { label: "New Mission", route: "/missions/new" },
+          { label: "Warehousing Missions", route: "/warehousing-missions/id" },
+          { label: "Transfer Missions", route: "/transfer-missions/id" },
+          { label: "Empty Car Missions", route: "/empty-car-missions/id" },
+          { label: "Cleaning Missions", route: "/cleaning-missions/id" }
         ],
       },
       
