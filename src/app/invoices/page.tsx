@@ -7,18 +7,63 @@ import { InvoiceVwModel } from "@/types/BackendModels";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+
 const InvoicesPage: React.FC = () => {
     const [invoices, setInvoices] = useState<InvoiceVwModel[]>([]);
     const [totalInvoices, setTotalInvoices] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 10;
-    const invoiceService = new InvoiceService();  
+    const invoiceService = new InvoiceService();
     // 
 
     const totalPages = Math.ceil(totalInvoices / pageSize);
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
+    };
+
+
+    const downloadPDF = () => {
+        const doc = new jsPDF();
+    
+        // Title
+        doc.text('Invoices Report', 14, 15);
+    
+        // Table Column Headers
+        const tableColumn = ["Company", "Mission", "Amount", "Date"];
+        
+        // Table Rows Data
+        const tableRows = invoices.map(invoice => [
+            invoice.CompanyName,
+            invoice.MissionName,
+            `$${invoice.Amount.toFixed(2)}`,
+            new Date(invoice.CreatedDate).toLocaleDateString()
+        ]);
+    
+        doc.autoTable({
+            head: [tableColumn],
+            body: tableRows,
+            startY: 20,
+            theme: 'grid', 
+            styles: { 
+                cellPadding: 5,
+                fontSize: 10,
+                overflow: 'linebreak', 
+            },
+            headStyles: {
+                fillColor: [22, 160, 133], 
+                textColor: [255, 255, 255],
+                fontStyle: 'bold'
+            },
+            alternateRowStyles: {
+                fillColor: [240, 240, 240]
+            }
+        });
+    
+        // Save the PDF
+        doc.save('invoices.pdf');
     };
 
     //
@@ -39,12 +84,20 @@ const InvoicesPage: React.FC = () => {
                     <h4 className="text-xl font-semibold text-black dark:text-white">
                         All Invoices
                     </h4>
-                    <Link
-                        href="/invoices/new"
-                        className="inline-flex items-center justify-center rounded-md bg-primary py-2 px-6 text-white hover:bg-opacity-90"
-                    >
-                        Create Invoice
-                    </Link>
+                    <div className="flex gap-4">
+                        <button
+                            onClick={downloadPDF}
+                            className="inline-flex items-center justify-center rounded-md bg-primary py-2 px-6 text-white hover:bg-opacity-90"
+                        >
+                            Download PDF
+                        </button>
+                        <Link
+                            href="/invoices/new"
+                            className="inline-flex items-center justify-center rounded-md bg-primary py-2 px-6 text-white hover:bg-opacity-90"
+                        >
+                            Create Invoice
+                        </Link>
+                    </div>
                 </div>
 
                 <div className="max-w-full overflow-x-auto">

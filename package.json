@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",    "start": "next start",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
     "export": "next export"
   },
@@ -12,6 +13,8 @@
     "apexcharts": "^3.45.2",
     "axios": "^1.7.7",
     "flatpickr": "^4.6.13",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.4",
     "jsvectormap": "^1.5.3",
     "next": "^14.1.4",
     "react": "^18",
@@ -37,4 +40,3 @@
     "typescript": "^5"
   }
 }
-
