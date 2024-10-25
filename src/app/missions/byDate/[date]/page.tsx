@@ -49,8 +49,8 @@ export default function MissionsPage({ params }: MissionsPageProps) {
 
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Missions" />
-      <h2 className="text-lg font-bold p-1">Date: {params.date}</h2>
+      <Breadcrumb pageName={`Missions ends on : ${params.date}`}/>
+      {/* // <h2 className="mb-1.5 text-heading-6 font-bold text-dark dark:text-white">Date: {params.date}</h2> */}
 
       <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
         <div className="max-w-full overflow-x-auto">
