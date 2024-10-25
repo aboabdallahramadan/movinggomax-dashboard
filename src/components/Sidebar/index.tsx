@@ -339,6 +339,7 @@ const menuGroups = [
         // ],
         children: [
           { label: "Mission List", route: "/missions" },
+          { label: "New Missions", route: "/missions/new-missions" },
           { label: "New Mission", route: "/missions/new" },
           { label: "Warehousing Missions", route: "/warehousing-missions/id" },
           { label: "Transfer Missions", route: "/transfer-missions/id" },
