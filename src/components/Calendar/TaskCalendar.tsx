@@ -1,4 +1,5 @@
 'use client'
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 interface TaskDate {
@@ -12,7 +13,7 @@ interface TaskCalendarProps {
 
 const TaskCalendar: React.FC<TaskCalendarProps> = ({ taskDates }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
-
+  const router = useRouter()
   const getDaysInMonth = (date: Date) => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   };
@@ -88,7 +89,8 @@ const TaskCalendar: React.FC<TaskCalendarProps> = ({ taskDates }) => {
           >
             <div className="text-sm mb-1">{day.date.getDate()}</div>
             {day.tasks > 0 && (
-              <div className="text-xs px-2 py-1 bg-primary text-white rounded-full inline-block">
+              <div className="text-xs px-2 py-1 bg-primary text-white rounded-full inline-block cursor-pointer"
+              onClick={() => router.push(`/missions/byDate/${day.date.toISOString().split('T')[0]}`)}>
                 {day.tasks} tasks
               </div>
             )}
