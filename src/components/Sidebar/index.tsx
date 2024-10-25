@@ -296,7 +296,8 @@ const menuGroups = [
         label: "Users",
         route: "#",
         children: [
-          { label: "User List", route: "/users" }
+          { label: "User List", route: "/users" },
+          { label: "Create Account Requests", route: "/users/requests" }
         ],
       },
 
@@ -348,6 +349,7 @@ const menuGroups = [
           { label: "Termination Missions", route: "/termination-missions" },
           { label: "Ended Missions", route: "/ended-missions" },
           { label: "Urgent Missions", route: "/urgent-missions" },
+          { label: "Individual Missions", route: "/individual-missions" },
         ],
       },
       {

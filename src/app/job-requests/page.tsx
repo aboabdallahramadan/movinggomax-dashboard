@@ -56,9 +56,9 @@ const JobRequestsPage: React.FC = () => {
                                     </td>
                                     <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                         <span className={`inline-block rounded px-2.5 py-0.5 text-sm font-medium
-                                            ${request.status === 'pending' ? 'bg-yellow-50 text-yellow-600' : 
-                                            request.status === 'viewed' ? 'bg-blue-50 text-blue-600' : 
-                                            'bg-green-50 text-green-600'}`}>
+                                            ${request.status === 'pending' ? 'bg-yellow-50 text-yellow-600' :
+                                                request.status === 'viewed' ? 'bg-blue-50 text-blue-600' :
+                                                    'bg-green-50 text-green-600'}`}>
                                             {request.status}
                                         </span>
                                     </td>
@@ -67,9 +67,9 @@ const JobRequestsPage: React.FC = () => {
                                     </td>
                                     <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                         <span className={`inline-block rounded px-2.5 py-0.5 text-sm font-medium
-                                            ${request.priority === 'high' ? 'bg-red-50 text-red-600' : 
-                                            request.priority === 'medium' ? 'bg-orange-50 text-orange-600' : 
-                                            'bg-green-50 text-green-600'}`}>
+                                            ${request.priority === 'high' ? 'bg-red-50 text-red-600' :
+                                                request.priority === 'medium' ? 'bg-orange-50 text-orange-600' :
+                                                    'bg-green-50 text-green-600'}`}>
                                             {request.priority}
                                         </span>
                                     </td>
@@ -89,6 +89,13 @@ const JobRequestsPage: React.FC = () => {
                                                         fill=""
                                                     />
                                                 </svg>
+                                            </button>
+
+                                            <button
+                                                className="hover:text-primary"
+                                                onClick={() => window.location.href = `/job-requests/${request.id}`}
+                                            >
+                                                Details
                                             </button>
                                         </div>
                                     </td>

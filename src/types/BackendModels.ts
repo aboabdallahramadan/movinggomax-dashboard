@@ -174,7 +174,15 @@ export interface Warehousing {
   StorageDuration: number;
   AreaInCubicMeter: Decimal;
 }
-
+export interface AccountRequest {
+  Id: string;
+  UserName: string;
+  Email: string;
+  PhoneNumber: string;
+  CompanyName: string;
+  RequestDate: Date;
+  Status: 'Pending' | 'Approved' | 'Rejected';
+}
 export interface Email {
   Id: GUID;
   firstName: string;
@@ -272,4 +280,17 @@ export interface CreateEmptyCarMissionModel {
   NumberOfCarsAvailable: number;
   CarSize: number;
   IsLocal: boolean;
+}
+
+export interface IndividualMission {
+  Id: GUID;
+  Type: string;
+  MissionResponsible: string;
+  MissionResponsibleNumber: string;
+  FromAddress: string;
+  ToAddress: string;
+  City: string;
+  ExecuteDateTime: DateTime;
+  State: string;
+  Description: string;
 }

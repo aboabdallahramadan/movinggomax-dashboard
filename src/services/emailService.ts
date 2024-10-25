@@ -62,6 +62,27 @@ export class EmailService {
         });
         return true;
     }
+    public async getById(id: string): Promise<Email> {
+        // API call would be here
+        /*
+        const response: AxiosResponse = await axios.delete(`${BASE_URL}/${id}`);
+        return response.status === 200;
+        */
+        Toast.fire({
+            icon: "success",
+            title: "Email deleted successfully"
+        });
+        const exampleEmail: Email = {
+            Id: "123e4567-e89b-12d3-a456-426614174000", // Example GUID
+            firstName: "John",
+            lastName: "Doe",
+            phoneNumber: "+1234567890",
+            email: "john.doe@example.com",
+            location: "New York, NY",
+            message: "Hello! I would like to inquire about your services."
+        };
+        return exampleEmail;
+    }
 }
 
 // Create instance

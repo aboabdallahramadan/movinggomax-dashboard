@@ -70,7 +70,7 @@ const EmailsPage: React.FC = () => {
                                     </td>
                                     <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                         <div className="flex items-center space-x-3.5">
-                                            <button 
+                                            <button
                                                 className="hover:text-danger"
                                                 onClick={() => emailService.deleteById(email.Id)}
                                             >
@@ -87,6 +87,12 @@ const EmailsPage: React.FC = () => {
                                                         fill=""
                                                     />
                                                 </svg>
+                                            </button>
+                                            <button
+                                                className="hover:text-primary"
+                                                onClick={() => window.location.href = `/emails/${email.Id}`}
+                                            >
+                                                Details
                                             </button>
                                         </div>
                                     </td>
