@@ -3,7 +3,7 @@
 // Utilities
 type GUID = string;
 type DateTime = string | Date;
-type Decimal = number;
+export type Decimal = number;
 
 // Model: Advertisements
 export interface Advertisement {
@@ -200,4 +200,76 @@ export interface JobApplicationForm {
   nationality: string;
   maritalStatus: "Single" | "Married";
   gender: "Male" | "Female";
+}
+
+
+export interface CreateWarehousingMissionModel {
+    Type: string;
+    MissionResponsible: string;
+    MissionResponsibleNumber: string;
+    FromAddress: string;
+    ToAddress: string;
+    City: string;
+    Price: Decimal;
+    ExecuteDateTime: DateTime;
+    State: string;
+    Description: string;
+    SellerId: GUID;
+    BuyerId: GUID;
+  StorageDuration: number;
+  AreaInCubicMeter: Decimal;
+}
+// Model: Warehousings
+export interface CreateTransferMissionModel {
+  Type: string;
+  MissionResponsible: string;
+  MissionResponsibleNumber: string;
+  FromAddress: string;
+  ToAddress: string;
+  City: string;
+  Price: Decimal;
+  ExecuteDateTime: DateTime;
+  State: string;
+  Description: string;
+  SellerId: GUID;
+  BuyerId: GUID;
+  ApartmentType: string;
+  ApartmentArea: string;
+  IsElevatorAvailable: boolean;
+  IsWrapping: boolean;
+  FromAddressFloor: string;
+  ToAddressFloor: string;
+}
+export interface CreateCleaningMissionModel {
+  Type: string;
+  MissionResponsible: string;
+  MissionResponsibleNumber: string;
+  FromAddress: string;
+  ToAddress: string;
+  City: string;
+  Price: Decimal;
+  ExecuteDateTime: DateTime;
+  State: string;
+  Description: string;
+  SellerId: GUID;
+  BuyerId: GUID;
+  IsHaveBalcony: boolean;
+  ApartmentType: string;
+}
+export interface CreateEmptyCarMissionModel {
+  Type: string;
+  MissionResponsible: string;
+  MissionResponsibleNumber: string;
+  FromAddress: string;
+  ToAddress: string;
+  City: string;
+  Price: Decimal;
+  ExecuteDateTime: DateTime;
+  State: string;
+  Description: string;
+  SellerId: GUID;
+  BuyerId: GUID;
+  NumberOfCarsAvailable: number;
+  CarSize: number;
+  IsLocal: boolean;
 }
