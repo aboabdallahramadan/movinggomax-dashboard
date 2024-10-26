@@ -24,6 +24,7 @@ const Toast = Swal.mixin({
 const BASE_URL = "https://api.example.com/missions";
 
 export class MissionService {
+ 
   rejectMission(id: string) {
       throw new Error('Method not implemented.');
   }
@@ -70,6 +71,51 @@ export class MissionService {
   
   // Get paginated missions
   public async getPaginated(
+    page: number,
+    pageSize: number,
+  ): Promise<{ data: Mission[]; total: number }> {
+    // API call would be here, returning dummy data for now
+    /*
+        const response: AxiosResponse = await axios.get(`${BASE_URL}?page=${page}&pageSize=${pageSize}`);
+        return response.data;
+        */
+    return {
+      data: [
+        {
+          Id: "guid-123",
+          Type: "Transfer",
+          MissionResponsible: "John Doe",
+          MissionResponsibleNumber: "+1234567890",
+          FromAddress: "123 Start St",
+          ToAddress: "456 End Ave",
+          City: "Sample City",
+          Price: 1500.0,
+          ExecuteDateTime: new Date(),
+          State: "Active",
+          Description: "Sample mission description",
+          SellerId: "seller-guid-123",
+          BuyerId: "buyer-guid-456",
+        },
+        {
+          Id: "guid-456",
+          Type: "Cleaning",
+          MissionResponsible: "Jane Smith",
+          MissionResponsibleNumber: "+9876543210",
+          FromAddress: "789 Main St",
+          ToAddress: "321 Side St",
+          City: "Example City",
+          Price: 800.0,
+          ExecuteDateTime: new Date(),
+          State: "Pending",
+          Description: "Another mission description",
+          SellerId: "seller-guid-789",
+          BuyerId: "buyer-guid-012",
+        },
+      ],
+      total: 2,
+    };
+  }
+  public async getPaginatedArchived(
     page: number,
     pageSize: number,
   ): Promise<{ data: Mission[]; total: number }> {

@@ -44,6 +44,33 @@ export class InvoiceService {
       total: 2,
     };
   }
+
+  public async getPaginatedArchived(
+    currentPage: number,
+    pageSize: number,
+  ): Promise<{ data: InvoiceVwModel[]; total: number }> {
+    return {
+      data: [
+        {
+          Id: "guid-123",
+          Amount: 1500.0,
+          CreatedDate: new Date(),
+          CompanyId: "company-guid-1",
+          CompanyName: "Company A",
+          MissionName: "Mission X",
+        },
+        {
+          Id: "guid-456",
+          Amount: 2500.0,
+          CreatedDate: new Date(),
+          CompanyId: "company-guid-2",
+          CompanyName: "Company B",
+          MissionName: "Mission Y",
+        },
+      ],
+      total: 2,
+    };
+  }
   // Get paginated invoices with company and mission details
   public async getPaginated(
     page: number,
