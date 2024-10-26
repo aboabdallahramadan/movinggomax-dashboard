@@ -463,26 +463,41 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           }`}
       >
         {/* <!-- SIDEBAR HEADER --> */}
-        <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5 xl:py-10">
-          <Link href="/">
-            <Image
-              width={176}
-              height={32}
-              src={"/images/logo/logo-dark.svg"}
-              alt="Logo"
-              priority
-              className="dark:hidden"
-              style={{ width: "auto", height: "auto" }}
-            />
-            <Image
-              width={176}
-              height={32}
-              src={"/images/logo/logo.svg"}
-              alt="Logo"
-              priority
-              className="hidden dark:block"
-              style={{ width: "auto", height: "auto" }}
-            />
+        <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5 xl:py-10"
+        style={{
+          paddingBottom:"15px",
+          paddingTop:"29px",
+
+        }}>
+          <Link href="/"
+          style={{
+            width: "100%",
+          }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "100%",
+                padding: 0
+              }}
+            >
+
+              <Image
+                width={60}
+                height={60}
+                src={"/images/logo/small-logo.png"}
+                alt="Logo"
+                priority
+              />
+              <h4
+                className="text-[20px] font-bold leading-[30px] text-dark dark:text-white"
+              >MOVING GO MAX</h4>
+
+
+            </div>
+
           </Link>
 
           <button
